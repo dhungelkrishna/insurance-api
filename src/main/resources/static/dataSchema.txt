@@ -1,0 +1,72 @@
+User Table:
+
+UserID (Primary Key)
+Username
+Email
+Password
+UserType (e.g., customer, administrator)
+
+------------------------------------------------------------
+Policy Table:
+
+PolicyID (Primary Key)
+PolicyName
+Description
+CoverageAmount
+PremiumAmount
+StartDate
+EndDate
+UserID (Foreign Key referencing User Table)
+
+------------------------------------------------------------
+
+Claim Table:
+
+ClaimID (Primary Key)
+PolicyID (Foreign Key referencing Policy Table)
+ClaimDate
+Description
+Status (e.g., pending, approved, denied)
+
+------------------------------------------------------------
+
+Wellness Program Table:
+
+ProgramID (Primary Key)
+ProgramName
+Description
+StartDate
+EndDate
+
+------------------------------------------------------------
+
+Participant Table:
+
+ParticipantID (Primary Key)
+UserID (Foreign Key referencing User Table)
+ProgramID (Foreign Key referencing Wellness Program Table)
+EnrollmentDate
+Status (e.g., active, completed)
+
+
+
+------------------------------------------------------------
+Wellness Activity Table:
+ActivityID (Primary Key)
+ActivityName
+Description
+ActivityDate
+ParticipantID (Foreign Key referencing Participant Table)
+PointsEarned
+
+
+------------------------------------------------------------
+
+Payment Transaction Table:
+
+TransactionID (Primary Key)
+UserID (Foreign Key referencing User Table)
+Amount
+TransactionDate
+PaymentMethod
+Status (e.g., pending, completed)
